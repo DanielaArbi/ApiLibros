@@ -23,7 +23,11 @@ app.use(cors());
 app.get('/',(req,res)=>{
     res.send("welcome to my API")
 })
-app.use('/api', router);
+const apiLibros = require("./router/routes.js");
+const apiUsuarios = require("./router/routesUser.js");
+
+app.use('/api', apiLibros);
+app.use('/user',apiUsuarios);
 
 //server runnig-----------------------------
 app.listen(app.get('port'),()=>{
